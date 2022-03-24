@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+<!-- {% load static %} -->
+<!-- title section  -->
+{% block title %} | User Profile {% endblock title %}
+<!-- title section done -->
+
+<!-- header section  -->
+{% block header %} {% include "header.html" %}{% endblock header %}
+<!-- header section done -->
+
+<!-- content section  -->
+{% block content %}
+    <h1>{{load_profile.user.username}} profile update</h1>
+    <div class="container-fluid profilee pt-5">
+        <div class="container profile">
+            <div class="secondbox">
+                <div class="">
+                    <form action="{% url 'profile_update' %}" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                        <h2>Username: <span>{{load_profile.user.username}}</span></h2>
+                        <p>First Name: <span>{{form.first_name}}</span></p>
+                        <p>Last Name: <span>{{form.last_name}}</span></p>
+                        <p>Phone: {{form.phone}}</p>
+                        <p>Adress: {{form.address}}</p>
+                        <p>State: {{form.state}}</p>
+                        <p>Country: {{form.country}}</p>
+                        <p>Image: <span>{{form.image}}</span></p>
+                        <button type="submit" class="btn mybtn">Update <i class="fas fa-user-circle"></i></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+<!-- content section done -->
+
+    
+    

@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% load humanize %}
+
+{% block title %} | {{single.name}}{% endblock title %}
+    
+
+<!-- header section -->
+{% block header %}{% include "header.html" %}{% endblock header %}
+<!-- header section done -->
+
+<!-- banner section -->
+<!-- banner section done -->
+
+<!-- content section -->
+{% block content %}
+    <!-- box1 -->
+    <div class="container-fluid mt-4 mb-4">
+        <h1 class="text-center">All Meals Varieties</h1>
+        <div class="row">
+            <!-- breakfast -->
+            {% if varieties %}
+                {% for va in varieties %}
+                    <div class="varieties col-12 col-sm-6 col-md mb-4 col-lg-3 w-25 mt-5 mb-3 text-center">
+                        <div class="box">
+                            <img src="{{va.image.url}}" style="width: 10rem;">
+                            <h5>{{va.name|title}}</h5>
+                            <p>Get a discount on every plate you order.</p>
+                            <a href="{% url 'variety' va.id va.slug %}" class="btn">Show More</a> 
+                        </div>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+{% endblock content %}
+<!-- content section done -->
+
+<!-- footer section  -->
+{% block footer %}{% include "footer.html" %}{% endblock footer %}
+<!-- footer section done -->
+    

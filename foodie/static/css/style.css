@@ -1,0 +1,595 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700;1,900&display=swap'); */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    overflow-x: hidden;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    /* font-family: 'Montserrat', sans-serif,'Roboto', sans-serif; */
+    /* background-color: ; */
+}
+
+h1{
+    text-align: center;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 3rem;
+    font-weight: 900;
+    /* color: #fff; */
+}
+.btn{
+    background-color: #E31B1B;
+    color: #fff;
+    transition: 0.8s ease;
+}
+.btn:hover{
+    background-color: #E6D16B;
+    color: black;
+    border: 2px solid red;
+
+}
+
+/* banner  */
+.carousel-caption{
+    display: grid;
+    height: 50vh;
+    justify-content: center;
+    align-items: center;
+}
+#carouselExampleInterval > div > div.carousel-item.active > img{
+    /* height: 70vh; */
+    width: 100%;
+    background-size: cover;
+    background-position: cover;
+    background-repeat: no-repeat;
+}
+/* banner done */
+
+/* video banner */
+.headerr{
+    height: 100vh;
+}
+
+.video-background{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -1;
+
+}
+.headerr-caption{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+}
+.welcome-msg h2{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: 900;
+    font-size: 4rem;
+    color: #fff;
+}
+.welcome-msg span{
+    color: red;
+}
+/* video banner ends here */
+
+.navbar #navbarSupportedContent .nav-item{
+    margin-left: 3rem;
+}
+.navbar #navbarSupportedContent .nav-item .nav-link{
+    color: black;
+    font-size: 1.3rem;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: 200;
+    transition: 0.9s ease;
+}
+.navbar #navbarSupportedContent .nav-item .nav-link:hover{
+    background-color: rgba(241, 187, 6, 0.476);
+    color: rgb(7, 7, 7);
+    transform: translateX(3s);
+}
+/* nav section done */
+
+/* styling for offer */
+
+.offersection{
+    background-color: rgba(142, 87, 90, 0.51);
+    height: 100%;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+.offer img{
+    margin-left: 1rem;
+    max-width: 70%;
+}
+.offer .boxx2 h2{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: 600;
+    font-size: 3rem;
+    color: rgba(142, 87, 90, 0.51);
+    padding-top: 2rem;
+
+}
+.offer .boxx2 span{
+    color: rgba(142, 87, 90, 0.51);
+}
+.boxx2 .app{
+    display: flex;
+    margin-bottom: 1rem;
+    cursor: pointer;
+}
+
+.boxx2 .app img{
+    max-width: 4rem;
+}
+/* footer section  */
+footer{
+    background-color: rgba(99, 88, 88, 0.755);
+}
+.footersection{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(10rem,1fr));
+    gap: 4rem;
+    align-items: left;
+    padding-top: 3rem;
+}
+.footersection h4{
+    color: red;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: 900;
+}
+.footersection a{
+    text-decoration: none;
+    color: #fff;
+    cursor: pointer;
+    font-style: italic;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    transition: 0.6s ease-in-out;
+    
+}
+.footersection a:hover{
+    background-color: #E6D16B;
+    color: rgba(142, 87, 90, 0.51);
+    transform: translateY(9s);
+}
+.footersection .app img{
+    width: 9rem;
+}
+.footersection .app .app_wrapper{
+    display: flex;
+    margin-right: 3rem;
+}
+/* footer section done */
+
+/* contact section  */
+#contact{
+    display: grid;
+    /* justify-content: center; */
+    align-items: center;
+    justify-items: center;
+    grid-template-columns: repeat(auto-fit,minmax(40rem,1fr));
+    background-color: #C5A9AB;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+.contact-info div{
+    margin-bottom: 1rem;
+}
+.contact-detail div{
+    margin-bottom: 1rem;
+}
+.contact-info input{
+    padding: 1rem;
+    width: 100%;
+}
+/* contact section done */
+
+/* map section  */
+.map-section{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+.mapp{
+    background-color: #e6d26b61;
+}
+.map-section div{
+    margin-right: 1rem;
+}
+.map-section input{
+    width: 100%;
+    height: 3rem;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 2px solid black;
+}
+.map-section input,
+.map-section textarea::placeholder{
+    padding-left: 2rem;
+}
+.map-section textarea{
+    width: 100%;
+    /* height: rem; */
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 2px solid black;
+}
+.inputareas div{
+    margin-bottom: 2rem;
+}
+
+.formm{
+    float: right;
+    padding-bottom: 3rem;
+}
+.formm form{
+    box-shadow: 10px 5px 5px rgba(142, 87, 90, 0.51);
+}
+/* map section done */
+
+/* login section   */
+.login_section{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+.formm form{
+    box-shadow: 10px 5px 5px rgba(142, 87, 90, 0.51);
+}
+.formm input{
+    width: 100%;
+    height: 2rem;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 2px solid black;
+}
+.formm form textarea::placeholder{
+    padding-left: 2rem;
+}
+.formm form textarea{
+    width: 100%;
+    /* height: rem; */
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 2px solid black;
+}
+.formm form div{
+    margin-bottom: 2rem;
+}
+.login_section .img img{
+    width: 100%;
+}
+
+/* login section  done */
+
+/* register section  */
+.reg_section{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(30rem,1fr));
+    justify-content: center;
+    align-items: center;
+}
+.reg_section img{
+    justify-items: center ;
+}
+.reg_section .img{
+    display: flex;
+    justify-content: center;
+}
+.reg_section form div{
+    margin-bottom: 2rem;
+}
+.reg_section form div input{
+    width: 80%;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 2px solid black;
+}
+/* register section done */
+
+
+/* profile creation  */
+.profile img{
+    width: 50%;
+    border-radius: 100%;
+}
+.firstbox{
+    max-height: 200%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:rgba(120, 99, 99, 0.415);
+    border-radius: 4rem;
+}
+.profile{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(20rem,1fr));
+    gap: 3rem;
+    
+}
+.profilee{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    height: 100vh;
+}
+.profilee h1 h2{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+/* profile creation done */
+
+
+/* cart page styling */
+
+/* coupon section */
+.coupon{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(15rem,1fr));
+}
+/* coupon section done */
+
+/* cart total */
+.cart-total{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(15rem,1fr));
+}
+.cart-header{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+}
+#cartb{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(15rem,1fr));
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    background: rgba(243, 245, 39, 0.45); ;
+    /* height: 100vh; */
+    /* position: absolute; */
+}
+#cartb h3{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 8rem;
+    font-weight: 800;
+    color: rgba(142, 87, 90, 0.51);
+}
+#cartb small{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 1.3rem;
+}
+#cartb table td {
+    border:1px solid black;
+}
+#tablerow{
+    background-color: rgba(243, 245, 39, 0.45);;
+}
+/* cart total done */
+
+/* cart page styling done */
+
+/* checkout page */
+.checkout{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+}
+.checkout-details{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(15rem,1fr));
+    gap: 3rem;
+}
+/* checkout page done */
+
+/* thank you  */
+.thankyou{
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    flex-direction: column;
+    height: 100vh;  
+}
+.thankyoupage{
+    background: url(../img/burger.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}.thankyou .thanks{
+    background-color: #333;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    color: #fff;
+}
+.button-group button{
+    text-decoration: none;
+    color: #fff;
+}
+.buttons{
+    border: 2px solid#fff;
+    border-top-right-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+    padding: 1rem 1rem;
+    margin-left: 1rem;
+    background-color: transparent;
+    transition: 1s ease;
+}
+.buttons:hover{
+    background-color: #E6D16B;
+    color: black;
+    transform: translateY(-10px);
+}
+/* thank you done */
+
+
+/* meal */
+.addtocart{
+    display: flex;
+    gap: 2rem;
+}
+
+/* variety box  */
+.variety-box{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(15rem,1fr));
+    gap: 2rem;
+    text-align: center;
+    position: relative;
+}
+.variety-box a{
+    border: 1px solid black;
+    list-style-type: none;
+    text-decoration: none;
+    padding: 5px 1rem;
+    border-radius: 3rem;
+    background-color: #E31B1B;
+    color: #fff;
+}
+.variety-box h5{
+    font-weight: 900;
+}
+.variety-box a:hover{
+    background-color: #E6D16B;
+    color: black;
+}
+.rice,
+.spaghetti,
+.swallow,
+.continental
+{
+    background-color: #E6D16B;
+    height: 110%;
+    text-align: center;
+    justify-content: center;
+    padding: 2rem;
+    color: #fff;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    
+}
+.box{
+    background-color: #E6D16B;
+    height: 110%;
+    text-align: center;
+    justify-content: center;
+    padding: 2rem;
+    color: black;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.rice{
+    /* background: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.5)),url(../img/rce.jpg); */
+    position: relative;
+    bottom: 10px;
+}
+.spaghetti{
+    /* background: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.5)),url(../img/spa.jpg); */
+    position: relative;
+    bottom: 10px;
+}
+.swallow{
+    /* background: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.5)),url(../img/soup8.jpg); */
+    position: relative;
+    bottom: 10px;
+}
+.continental{
+    /* background: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.5)),url(../img/chicken5.jpg); */
+    position: relative;
+    bottom: 10px;
+}
+/* chef banner */
+.chef{
+    height: 100vh;
+    background: rgba(14, 14, 190, 0.34);
+}
+
+.video-background{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -1;
+
+}
+.chef-caption{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    /* flex-direction: column; */
+}
+.chef-welcome-msg h1{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: 900;
+    color: #fff;
+}
+.chef-welcome-msg span{
+    color: red;
+}
+/* chef banner */
+
+/* variety box done */
+@media (max-width: 400px){
+    #cartb > div > h3{
+        font-size: 4em;
+    }
+}
+@media (max-width: 500px){
+    .addtocart{
+        flex-wrap: wrap;
+    }
+    .welcome-msg h2{
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        font-weight: 900;
+        font-size: 60px;
+        color: #fff;
+    }
+    h1{
+        font-size: 4rem;
+    }
+    
+    
+}
+@media (max-width: 800px){
+    .addtocart{
+        flex-wrap: wrap;
+    }
+    #cartb img{
+        width: 9rem;
+    }
+    .welcome-msg h2{
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        font-weight: 900;
+        font-size: 30px;
+        color: #fff;
+    }
+    h1{
+        font-size: 20px;
+    }
+}
+@media (max-width: 1200px){
+f    .addtocart{
+        flex-wrap: wrap;
+    }
+}
+/* meal done */

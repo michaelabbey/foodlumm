@@ -1,0 +1,194 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+{% load mathfilters %}
+
+{% block header %}{% include "header.html" %}{% endblock header %}
+
+{% block content %}
+  <div class="container-fluid checkout" style="background-color: rgba(201, 201, 94, 0.496);height:8rem">
+    <h3 class="text-center">Checkout</h3>
+  </div>
+  <div class="container mt-5 mb-5">
+    <h2>Billing Information</h2>
+    <small>Already Register, click <a href="{% url 'signin' %}">Here to Login</a></small>
+  </div>
+  <div class="container">
+  <div class="checkout-details ">
+      <form action="{% url 'placeorder' %}" method="POST">
+      {% csrf_token %}  
+          <div class="form-row">
+              <div class="form-group mr-3">
+                <label for="Text">First Name</label>
+                <input type="text" name="first_name" value="{{user_profile.first_name}}" class="form-control" id="Text" placeholder="First Name">
+              </div>
+              <div class="form-group">
+                <label for="Text">Last Name</label>
+                <input type="text" name="last_name" value="{{user_profile.last_name}}" class="form-control" id="Text" placeholder="Last Name">
+              </div>
+          </div>
+          <div class="form-row">
+              <div class="form-group mr-3">
+                <label for="email">Email Address</label>
+                <input type="email"  name="email" value="{{user_profile.user.email}}" class="form-control" id="Text" placeholder="Email Address">
+              </div>
+              <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" name="phone" value="{{user_profile.phone}}" class="form-control" id="Text" placeholder="Phone Number">
+              </div>
+          </div>
+          <div class="form-group">
+              <label for="Address">Address</label>
+              <input type="text" name="address" value="{{user_profile.address}}" class="form-control" placeholder="1234 Main St">
+          </div>
+          <div class="form-row">
+              <div class="form-group mr-3">
+                <label for="email">State</label>
+                <input type="text" name="state" value="{{user_profile.state}}" class="form-control" id="Text" placeholder="State">
+              </div>
+              <div class="form-group mr-3">
+                <input type="hidden" name="get_total" value="{{total}}" class="form-control" id="Text">
+                <!-- <input type="hidden" name="get_orderno" value="{{orderno}}" class="form-control" id="Text"> -->
+              </div>
+              <div class="form-group">
+                <label for="phone">Postal/Zip Code</label>
+                <input type="text" name="postal/zip_code" value="" class="form-control" id="Text" placeholder="Postal/Zip Code">
+              </div>
+          </div>
+          <!-- <div class="form-group">
+              <label for="Country">Country</label>
+              <select name="" id=""class="form-control">
+                  <option value="">Afghanistan</option>
+                  <option value="">Albania</option>
+                  <option value="">Algeria</option>
+                  <option value="">Andorra</option>
+                  <option value="">Angola</option>
+                  <option value="">Antigua and Barbuda</option>
+                  <option value="">Argentina</option>
+                  <option value="">Armenia</option>
+                  <option value="">Australia</option>
+                  <option value="">Austria</option>
+                  <option value="">Azerbaijan</option>
+                  <option value="">Bahrain</option>
+                  <option value="">Bangladesh</option>
+                  <option value="">Barbados</option>
+                  <option value="">Belarus</option>
+                  <option value="">Belgium</option>
+                  <option value="">Belize</option>
+                  <option value="">Benin</option>
+                  <option value="">Bhutan</option>
+                  <option value="">Bolivia</option>
+                  <option value="">Bosnia and Herzegovina</option>
+                  <option value="">Brazil</option>
+                  <option value="">Bulgaria</option>
+                  <option value="">Burkina Faso</option>
+                  <option value="">Burundi</option>
+                  <option value="">Bulgaria</option>
+                  <option value="">Côte d'Ivoire</option>
+                  <option value="">Cabo Verde</option>
+                  <option value="">Cambodia</option>
+                  <option value="">Cameroon</option>
+                  <option value="">Canada</option>
+                  <option value="">Central African Republic</option>
+                  <option value="">Chad</option>
+                  <option value="">Chile</option>
+                  <option value="">China</option>
+                  <option value="">Colombia</option>
+                  <option value="">Comoros</option>
+                  <option value="">Costa Rica</option>
+                  <option value="">Croatia</option>
+                  <option value="">Cuba</option>
+              </select>
+          </div> -->
+          <div>
+              <input type="checkbox" value="" name="checkbox" id="">
+              <label for="">Shipping to same address</label>
+          </div>
+          <button type="submit" class="btn btn-outline-success">Place Order</button>
+      </form>
+      
+      <div class=""> 
+        <div class="container">
+          <table class="table">
+            <thead class="">
+              <tr id="tablerow">
+                  <th scope="col">Remove</th>
+                  <th scope="col">Image</th>
+                  <th scope="col">Price</th>
+                  <th scope="col">Amount</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              {% if cart %}
+                {% for item in cart %}
+                  <tr>
+                    <!-- remove button -->
+                    <td scope="row"> 
+                      <form action="{% url 'remove_item' %}" method="POST">
+                          {% csrf_token %}
+                          <input type="hidden" name="deleteitem" value="{{item.id}}">
+                          <button type="submit" onclick="return confirm('Are you sure you want to delete this item from your cart?')"><i class="fas fa-trash-alt text-danger" style="cursor: pointer;"></i></button>
+                      </form>
+                    </td>
+                    <!-- Image -->
+                    <td><img src="{{item.meal.image.url}}" style="width: 3rem; border-radius: 5rem;"></td> 
+                    <!-- discount data -->
+                    <td> 
+                      {% if item.meal.discount %}
+                          <span class="text-danger"><b>{{item.meal.discount|floatformat:2|intcomma}}</b></span>
+                      {% else %}
+                          <span><b>{{item.meal.price|floatformat:2|intcomma}}</b></span>
+                      {% endif %}
+                    </td>
+                    <!-- Price data -->
+                    <td>
+                      {% if item.meal.discount %}
+                          <b><span class="text-success">{{item.meal.discount|mul:item.quantity|floatformat:2|intcomma}}</span></b>
+                      {% else %}
+                          <b><span>{{item.meal.price|mul:item.quantity|floatformat:2|intcomma}}</span></b>
+                      {% endif %}
+                    </td>
+                  </tr>
+                {% endfor %}
+              {% endif %}
+            </tbody>
+          </table>
+        </div>
+        <div class="container">
+          <div class="cart-total">
+            <table class="table">
+                <tbody>
+                <tr>
+                    <td scope="row"><b>SUBTOTAL:</b></td>
+                    <td><b>{{subtotal|floatformat:2|intcomma}}</b></td>
+                </tr>
+                <tr>
+                    <td><b>VAT(@7.5%):</b></td>
+                    <td scope="row"><b>{{var|floatformat:2|intcomma}}</b></td>
+                </tr>
+                <tr>
+                    <td><b class="text-success">TOTAL</b></td>
+                    <td scope="row" class="text-success"><b>{{total|floatformat:2|intcomma}}</b></td>
+                </tr>
+                </tbody>
+            </table>
+          </div>
+      </div>
+      <div>
+        <div class="py-3">
+          <img src="{% static '' %}img/Safecheckout.png" style="width: 20rem;" >
+        </div>
+        <div  class="mb-3">
+          <small class="text-muted"><i>Your personal data will be used to process your order, support your experience throughout this website, and for other purposes described in our privacy policy.</i></small>
+        </div>
+      </div>
+    </div>
+  </div>
+      
+  </div>
+{% endblock content %}
+  
+
+{% block footer %}{% include 'footer.html' %}{% endblock footer %}
+  

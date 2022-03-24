@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+<!-- header section -->
+{% block header %}{% include "header.html" %}{% endblock header %}
+<!-- header section done -->
+
+
+{% block login %}
+    <!-- login section  -->
+    <div class="container-fluid text-center mt-5 mb-5">
+        <h1  class="mb-5">LOGIN</h1>
+        <div class="login_section">
+            <div class="img">
+                <img src="{% static '' %}img/loginn.jpg" alt="">
+            </div>
+            <form action="{% url 'signin' %}" method="POST" class="mt-5">
+            {% csrf_token %}
+                <div>
+                    <input type="text" name="username" id="" placeholder="Username">
+                </div>
+                <div>
+                    <input type="password" name="password" id="" placeholder="Password">                
+                </div>    
+                <button href="" class="btn" type="reset">Reset</button>            
+                <button href="" class="btn" type="submit"><i class="fab fa-right-to-bracket"></i>Login</button>
+                <p class="mt-4">Click <a href="{% url 'register' %}">Here</a> to Register</p>
+            </form>
+        </div>
+    </div>
+    <!-- login section done --> 
+{% endblock login %}
+
+<!-- footer section  -->
+{% block footer %}{% include "footer.html" %}{% endblock footer %}
+<!-- footer section done -->
+    

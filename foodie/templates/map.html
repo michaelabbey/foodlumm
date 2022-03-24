@@ -1,0 +1,31 @@
+<!-- map section  -->
+
+<div class="container-fluid mapp pt-5" id="map_section">
+    <h1 class="text-center mb-5">Contact Us</h1>
+    <div class="container map-section">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31708.677393253187!2d3.342155126899796!3d6.573984087438848!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b92031aa99b07%3A0x5b146d723cef238b!2s19%20Ago%20-%20Owu%20St%2C%20Shogunle%20102214%2C%20Lagos!5e0!3m2!1sen!2sng!4v1644435422482!5m2!1sen!2sng" width="500" height="450" allowfullscreen="" loading="lazy"></iframe>
+        <div class="formm">
+            <form action="{% url 'contact' %}" method="POST" class="inputareas">
+            {% csrf_token %}
+                <div>
+                    <input type="text" name="first_name" id="" placeholder="First Name*">
+                </div>
+                <div>
+                    <input type="text" name="last_name" id="" placeholder="Last Name*">
+                </div>
+                <div>
+                    <input type="phone" name="phone" id="" placeholder="Phone Number*">
+                </div>
+                <div>
+                    <input type="email" name="email" id="" placeholder="Email*">
+                    <span class="text-danger"><i>we would never spam your email.</i></span>
+                </div>
+                <div>
+                    <textarea name="message" id="" cols="10" rows="5" placeholder="Message*"></textarea>
+                </div>
+                <button class="btn btn-info">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- map section done -->

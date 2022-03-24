@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load sample_tags %}
+
+{% block header %}{% include "header.html" %}{% endblock header %}
+{% block contact %}
+    <div class="container-fluid" id="contact">
+        <div class="">
+            <div class="cnt-img"><img src="/img/logo.png" alt=""></div>
+            <p><h2>CONTACT US</h2><small>We'd love to hear from you.</small></p>
+            <p class="btn"><i class="fas fa-phone"></i><a href="">+2348119721424</a></p>
+            <p class="btn"><a href="">FAQ</a></p>
+        </div>
+        <div class="">
+            <div class="">
+                <h2>LET US KNOW YOU BETTER</h2>
+                <form action="" class="contact-detail">
+                    <div>
+                        <input type="radio" name="click" id=""> I am a job seeker.
+                    </div>
+                    <div>
+                        <input type="radio" name="click" id=""> I am a media person.
+                    </div>
+                    <div>
+                        <input type="radio" name="click" id=""> I want to be a business partner.
+                    </div>
+                    <div>
+                        <input type="radio" name="click" id="">I am interested in being a supplier.
+                    </div>
+                    <div>
+                        <input type="radio" name="click" id="">Any Other.
+                    </div>
+                </form>
+            </div>
+            <div class="">
+                <h2>CONTACT INFO</h2>
+                <form action="" class="contact-info">
+                    <div>
+                        <input type="text" name="" id="" placeholder="First Name*">
+                    </div>
+                    <div>
+                        <input type="text" name="" id="" placeholder="Last Name*">
+                    </div>
+                    <div>
+                        <input type="number" name="" id="" placeholder="Phone Number*">
+                    </div>
+                    <div>
+                        <input type="email" name="" id="" placeholder="Email*">
+                    </div>
+                    <button href="" class="btn">Cancel</button>
+                    <button href="" class="btn">Submit</button>
+
+                </form>
+            </div>
+        </div>
+        
+    </div>
+{% endblock contact %}
+
+<!-- {% block footer %}{% include "footer.html" %}{% endblock footer %} -->
+ 

@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+<!-- header section -->
+{% block header %}{% include "header.html" %}{% endblock header %}
+<!-- header section done -->
+
+
+<!-- register section  -->
+{% block register %}
+<div class="container-fluid text-center mt-4">
+  <h1>REGISTER</h1>
+  <div class="login_section">
+    <div class="img">
+      <img src="{% static '' %}img/reg1.jpg" alt="">
+    </div>
+    <form action="{% url 'register' %}" method="POST">
+    {% csrf_token %}
+      <div>
+        <input type="text" name="username" id="" placeholder="Username">
+      </div>
+      <div>
+        <input type="text" name="first_name" id="" placeholder="First Name">
+      </div>
+      <div>
+        <input type="text" name="last_name" id="" placeholder="Last Name">
+      </div>
+      <div>
+        <input type="email" name="email" id="" placeholder="Email">                
+      </div>   
+      <div>
+        <input type="text" name="phone" id="" placeholder="Phone">                
+      </div>   
+      <div>
+        <input type="hidden" value="profile/favw.jpeg" name="image" id="">                
+      </div>   
+      <div>
+        <input type="password" name="password1" id="" placeholder="Password">                
+      </div>   
+      <div>
+        <input type="password" name="password2" id="" placeholder="Confirm Password">                
+      </div> 
+      <button href="" class="btn" type="reset">Reset</button>            
+      <button href="" class="btn" type="submit">Register</button>
+      <p class="mt-4">Click <a href="{% url 'signin' %}">here</a> if you have an account</p>
+      <div class="format text-danger mt-4">
+        <h6>Your password can't be too similar to your other personal information</h6>
+        <h6>Your password must contain at least 8 characters</h6>
+        <h6>Your password can't be a commonly used password</h6>
+        <h6>Your password can't be entirely numeric</h6>
+      </div>
+    </form>
+    
+  </div>
+</div>
+{% endblock register %}
+<!-- register section done -->
+
+<!-- footer section  -->
+{% block footer %}{% include "footer.html" %}{% endblock footer %}
+<!-- footer section done -->

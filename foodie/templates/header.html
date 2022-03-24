@@ -1,0 +1,77 @@
+{% load sample_tags %}
+{% load static %}
+
+
+
+<nav class="navbar sticky-top navbar-expand-lg bg-light">
+    <a class="navbar-brand text-white" href="{% url 'index' %}"><img src="{% static '' %}img/foodie1.png"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <i class="fas fa-align-justify text-danger"></i>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'index' %}">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% intralink 'index' 'map_section' %}">Contact Us</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Meal Varieties 
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="{% url 'vary' %}">All Varieties</a>
+            {% if varieties %}
+              {% for v in varieties %}
+                <a class="dropdown-item" href="{% url 'variety' v.id v.slug %}">{{v.name|title}}</a>
+              {% endfor %}
+            {% endif %}
+          </div>
+        </li>
+          {% if user.is_authenticated %}
+          <div class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle btn btn-outline-warning text-white" id="navbarDropdownMenuLink-4" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              <i class="fas fa-user text-dark"></i>Profile 
+            </a>
+            <div class="dropdown-menu dropdown-menu-right dropdown-info" aria-labelledby="navbarDropdownMenuLink-4">
+              <a class="dropdown-item" href="{% url 'user_profile' %}">My account</a>
+              <a class="dropdown-item" href="{% url 'cart' %}">My Cart <i class="fas fa-shopping-basket"></i>
+                <!-- This is to implement the number of item in the cart icon -->
+                {% if cartcount > 0 %} 
+                  <span class="badge badge-danger">{{cartcount}}</span>
+                  {% else %}
+                  <span class="badge badge-danger">0</span>
+                {% endif %}
+              </a>
+              <a class="dropdown-item" href="{% url 'logoutt' %}">Log out <i class="fas fa-sign-in-alt"></i></a>
+            </div>
+          </div>
+        {% else %}
+          <a class="nav-link btn" href="{% url 'signin' %}" >Signin <i class="fas fa-sign-in-alt"></i></a>
+          <a href="{% url 'register' %}" class="btn btn-warning" type="button">
+            <span  class="spinner-grow spinner-grow-sm btn-outline-warning" role="status" aria-hidden="true"></span>
+            Register
+          </a>
+        {% endif %}
+        <form class="form-inline" method="GET" action="{% url 'searchbar' %}">
+          <input class="form-control" type="search" name="query" placeholder="Search for any meal" aria-label="Search">
+          <button class="btn my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
+        </form>   
+        </ul>
+    </div>
+</nav>
+
+
+{% if messages %}
+  {% for item in messages %}
+  <div class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>{{item}}</strong>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  {% endfor %}
+{% endif %}

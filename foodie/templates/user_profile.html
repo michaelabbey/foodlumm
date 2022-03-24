@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% load static %}
+<!-- title section  -->
+{% block title %} | User Profile {% endblock title %}
+<!-- title section done -->
+
+<!-- header section  -->
+{% block header %} {% include "header.html" %}{% endblock header %}
+<!-- header section done -->
+
+<!-- content section  -->
+{% block content %}
+    <h1>{{user_profile.user.username}} dashboard</h1>
+    <div class="container-fluid profilee pt-5">
+        <div class="container profile">
+            <div class="firstbox mb-5 mr-5">
+                <div class="text-center">
+                    <img src="{{user_profile.image.url}}">
+                    <h1>{{user_profile.first_name}}</h1>
+                    <span><i>Foodie Customer</i></span>
+                </div>
+            </div>
+
+            <div class="secondbox">
+                <div class="">
+                    <h2 class="text-center" style="font-size: 3rem;">USER PROFILE</h2>
+                    <form action="">
+                        <div>
+                            <label for=""><b>Username:</b>{{user_profile.user.username}}</label>
+                        </div>
+                        <label for=""><b>First Name:</b> {{user_profile.first_name}}</label>
+                        <label for=""><b>Last Name:</b> {{user_profile.last_name}}</label>
+                        <div>
+                            <label for=""><b>Email</b>: {{user_profile.user.email}}</label>
+                        </div>
+                        <div>
+                            <label for=""><b>State</b>: {{user_profile.state}}</label>
+                        </div>
+                        <div>
+                            <label for=""><b>Address</b>: {{user_profile.address}}</label>
+                        </div>
+                        <div>
+                            <label for=""><b>Country</b>: {{user_profile.country}}</label>
+                        </div>
+                        <div>
+                            <label for=""><b>Phone:</b> {{user_profile.phone}}</label>
+                        </div>
+                        <button class="btn btn-success"><a href="{% url 'profile_update' %}" class="text-white">Edit Profile <i class="fas fa-edit"></i></a></button>
+                        <a href="{% url 'password-update' %}" class="btn btn-outline-warning">Update Password</a>
+                    </form>
+                    <!-- <a href="{% url 'password-update' %}">Update Password</a> -->
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+<!-- content section done -->
+
+    
+    
